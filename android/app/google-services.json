@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "139113014066",
+    "firebase_url": "https://sensor-67d62-default-rtdb.firebaseio.com",
+    "project_id": "sensor-67d62",
+    "storage_bucket": "sensor-67d62.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139113014066:android:43f26b6106c2f9a52cad2b",
+        "android_client_info": {
+          "package_name": "com.company.sensor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMwDQPTr3C9COWp8TUPrD5jktX45O-yGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139113014066:android:c0c8272d784590262cad2b",
+        "android_client_info": {
+          "package_name": "com.example.sensor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMwDQPTr3C9COWp8TUPrD5jktX45O-yGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
