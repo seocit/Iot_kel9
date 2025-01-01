@@ -46,66 +46,74 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'Ketinggian Air',
-          textAlign: TextAlign.center,
-        ),
-      ),
-      body: _isLoading
-          ? const Center(
-              child: CircularProgressIndicator(), // Indikator loading
-            )
-          : Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Ketinggian Air (cm):",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 16),
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      SizedBox(
-                        height: 200,
-                        width: 200,
-                        child: CircularProgressIndicator(
-                          value: _normalizeSensorValue(_sensorValue), // Nilai normalisasi (0-1)
-                          strokeWidth: 12,
-                          backgroundColor: Colors.grey[300],
-                          color: _getIndicatorColor(_sensorValue), // Warna indikator
-                        ),
-                      ),
-                      Text(
-                        "${_sensorValue.toStringAsFixed(1)} cm",
-                        style: const TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    "Status:",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    _getStatusText(_sensorValue),
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: _getIndicatorColor(_sensorValue),
-                    ),
-                  ),
-                ],
-              ),
+    return Theme(
+      data: ThemeData.dark(),
+      child: Scaffold(
+        
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text(
+            'Ketinggian Air',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 127, 215, 235),
             ),
+          ),
+        ),
+        body: _isLoading
+            ? const Center(
+                child: CircularProgressIndicator(), // Indikator loading
+              )
+            : Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Ketinggian Air (cm):",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 16),
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        SizedBox(
+                          height: 200,
+                          width: 200,
+                          child: CircularProgressIndicator(
+                            value: _normalizeSensorValue(_sensorValue), // Nilai normalisasi (0-1)
+                            strokeWidth: 12,
+                            backgroundColor: Colors.grey[300],
+                            color: _getIndicatorColor(_sensorValue), // Warna indikator
+                          ),
+                        ),
+                        Text(
+                          "${_sensorValue.toStringAsFixed(1)} cm",
+                          style: const TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      "Status:",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      _getStatusText(_sensorValue),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: _getIndicatorColor(_sensorValue),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+      ),
     );
   }
 
@@ -120,20 +128,20 @@ class _HomeScreenState extends State<HomeScreen> {
     if (value <= 30) {
       return Colors.red; // Bahaya
     } else if (value <= 60) {
-      return Colors.orange; // Waspada
+      return Color.fromARGB(255, 0, 255, 30); // Waspada
     } else {
-      return Colors.green; // Aman
+      return Color.fromARGB(255, 68, 213, 226); // Aman
     }
   }
 
   // Mendapatkan status berdasarkan nilai sensor
   String _getStatusText(double value) {
     if (value <= 30) {
-      return "Bahaya: Air Tinggi!";
+      return "Air Tinggi!";
     } else if (value <= 60) {
-      return "Waspada: Air Sedang.";
+      return "Air Sedang.";
     } else {
-      return "Aman: Air Rendah.";
+      return "Air Rendah.";
     }
   }
 }
